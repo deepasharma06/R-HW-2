@@ -1,0 +1,72 @@
+---
+title: "PythonHW2"
+author: "Deepa"
+date: "1/15/2022"
+output: html_document
+---
+
+# 1 question
+
+```{r}
+mydata <- read.csv("C:\\Users/Data.csv", stringsAsFactors = FALSE)
+summary(mydata)
+```
+# 2nd part of Question 1
+
+```{r}
+mydata <- read.csv("C:\\Users/Data.csv", stringsAsFactors = FALSE)
+summary(mydata)
+
+mean(mydata$age)
+median(mydata$age)
+
+
+```
+```{r}
+# create new data frame
+newdataframe <- data.frame(column1 = c("John(Dad)", "Lisa(Mom)", "Robert(Son)", "Kevin(Son)", "Elisha(Daughter)"),
+               column2 = c(65, 58, 30, 28, 24), column3 = c(10, 18, 15, 12, 14),  column4 = c('bl', 'br', 'bd', 'gr', 'bl')
+                )
+print (newdataframe)
+
+```
+
+```{r}
+# Rename column names
+names(newdataframe)[names(newdataframe)=="column1"] <- "Name"
+names(newdataframe)[names(newdataframe)=="column2"] <- "Age"
+names(newdataframe)[names(newdataframe)=="column3"] <- "Years_in_School"
+names(newdataframe)[names(newdataframe)=="column4"] <- "Hair_Color"
+print (newdataframe)
+```
+```{r}
+# Summary of my data
+summary(newdataframe)
+```
+```{r}
+
+# mean values are same here compare to above
+mean(newdataframe$Age)
+mean(newdataframe$Years_in_School)
+
+median(newdataframe$Age)
+median(newdataframe$Years_in_School)
+
+```
+```{r}
+install.packages("dplyr")
+  library(dplyr)
+
+# rename values in column Hair_Color
+newdataframe <- newdataframe %>%
+    mutate(Hair_Color = recode(Hair_Color, bl = 'Black', br = 'Brown', bd =  'Blonde', gr =  'Green' ))
+print(newdataframe)
+```
+
+```{r}
+# Read R from GitHub
+mydata <- read.csv("https://github.com/deepasharma06/R-HW-2/blob/main/Data.csv", stringsAsFactors = FALSE)
+summary(mydata)
+
+```
+
